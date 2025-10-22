@@ -60,7 +60,9 @@ function updateDotsSize(radius) {
 
 // Event Listeners
 densitySlider.addEventListener('input', (e) => {
-    spacing = parseInt(e.target.value);
+    // Invert the slider value: min(15) + max(32) - current value
+    // So slider value 15 gives spacing 32, slider value 32 gives spacing 15
+    spacing = 15 + 32 - parseInt(e.target.value);
     generateGrid();
 });
 
